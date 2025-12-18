@@ -70,6 +70,14 @@ WHERE age > 30
    pip install -r requirements.txt
    ```
 
+### Docker Installation (Alternative)
+
+1. Clone this repository
+2. Build the Docker image:
+   ```
+   docker build -t mini-sql-engine .
+   ```
+
 ## Usage
 
 ### Running the CLI Application
@@ -122,6 +130,18 @@ sql> SELECT COUNT(*) FROM employees WHERE country = 'USA';
 Count: 1
 ```
 
+### Using Docker
+
+Build the Docker image:
+```
+docker build -t mini-sql-engine .
+```
+
+Run the container:
+```
+docker run -it mini-sql-engine
+```
+
 ## Project Structure
 
 ```
@@ -136,6 +156,7 @@ Count: 1
 │   ├── exceptions.py
 │   └── parser.py
 ├── .gitignore
+├── Dockerfile
 ├── README.md
 └── requirements.txt
 ```
@@ -144,6 +165,7 @@ Count: 1
 
 - Python 3.7+
 - tabulate (>=0.8.0): For formatted table output
+- Docker (optional): For containerized deployment
 
 ## License
 
