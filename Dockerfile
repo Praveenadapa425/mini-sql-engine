@@ -16,8 +16,8 @@ COPY . .
 # Set environment variable for Python path
 ENV PYTHONPATH=/app
 
-# Expose port (if needed for future extensions)
+# Expose port for web application
 EXPOSE 8000
 
-# Default command to run the CLI application
-CMD ["python", "-m", "src.cli"]
+# Default command to run the web application
+CMD ["python", "-m", "src.web_app"]

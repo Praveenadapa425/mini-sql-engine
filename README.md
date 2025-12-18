@@ -2,7 +2,7 @@
 
 A simplified, in-memory SQL query engine implemented in Python. This project demonstrates fundamental database concepts by implementing a basic SQL parser and execution engine.
 
-This lightweight database engine allows you to load CSV files as tables and perform SQL-like queries on them directly in memory, without requiring a traditional database server.
+This lightweight database engine allows you to load CSV files as tables and perform SQL-like queries on them directly in memory, without requiring a traditional database server. Now includes both a command-line interface and a web interface for easier access.
 
 ## Key Features
 
@@ -11,6 +11,7 @@ This lightweight database engine allows you to load CSV files as tables and perf
 - **WHERE Filtering**: Filter rows with various comparison operators
 - **Aggregation**: COUNT() function for row counting
 - **Interactive CLI**: User-friendly command-line interface for executing queries
+- **Web Interface**: Browser-based interface for easier access
 - **Error Handling**: Clear error messages for invalid syntax or operations
 
 ## Supported SQL Grammar
@@ -70,7 +71,7 @@ WHERE age > 30
    pip install -r requirements.txt
    ```
 
-### Docker Installation (Alternative)
+### Docker Installation (Recommended)
 
 1. Clone this repository
 2. Build the Docker image:
@@ -79,6 +80,15 @@ WHERE age > 30
    ```
 
 ## Usage
+
+### Running the Web Application (Recommended)
+
+Using Docker (recommended):
+```
+docker run -p 8000:8000 mini-sql-engine
+```
+
+Then open your browser to http://localhost:8000
 
 ### Running the CLI Application
 
@@ -137,10 +147,12 @@ Build the Docker image:
 docker build -t mini-sql-engine .
 ```
 
-Run the container:
+Run the container with web interface:
 ```
-docker run -it mini-sql-engine
+docker run -p 8000:8000 mini-sql-engine
 ```
+
+Access the web interface at http://localhost:8000
 
 ## Project Structure
 
@@ -154,7 +166,10 @@ docker run -it mini-sql-engine
 │   ├── cli.py
 │   ├── engine.py
 │   ├── exceptions.py
-│   └── parser.py
+│   ├── parser.py
+│   ├── templates/
+│   │   └── index.html
+│   └── web_app.py
 ├── .gitignore
 ├── Dockerfile
 ├── README.md
@@ -165,6 +180,7 @@ docker run -it mini-sql-engine
 
 - Python 3.7+
 - tabulate (>=0.8.0): For formatted table output
+- Flask (>=2.0.0): For web interface
 - Docker (optional): For containerized deployment
 
 ## License
