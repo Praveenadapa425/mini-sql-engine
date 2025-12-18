@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 # Mini SQL Database Engine
 
 A simplified, in-memory SQL query engine implemented in Python. This project demonstrates fundamental database concepts by implementing a basic SQL parser and execution engine.
+
+This lightweight database engine allows you to load CSV files as tables and perform SQL-like queries on them directly in memory, without requiring a traditional database server.
 
 ## Features
 
@@ -55,6 +56,11 @@ Numeric comparisons:
 WHERE age > 30
 ```
 
+### Additional Notes
+- Table names are derived from the CSV filename (without extension)
+- All data is stored in memory and will be lost when the program exits
+- Column names are case-sensitive and must match exactly as they appear in the CSV header
+
 ## Installation
 
 1. Clone this repository
@@ -68,6 +74,12 @@ WHERE age > 30
 Run the CLI application:
 ```
 python -m src.cli
+```
+
+Or alternatively:
+```
+cd src
+python cli.py
 ```
 
 ### Example Session
@@ -126,29 +138,26 @@ sql> SELECT COUNT(*) FROM employees WHERE country = 'USA';
 ## Project Structure
 
 ```
-mini-sql-engine/
-├── .gitignore
-├── README.md
-├── requirements.txt
+.
 ├── sample_data/
 │   ├── employees.csv
 │   └── products.csv
-└── src/
-    ├── __init__.py
-    ├── cli.py
-    ├── engine.py
-    ├── exceptions.py
-    └── parser.py
+├── src/
+│   ├── __init__.py
+│   ├── cli.py
+│   ├── engine.py
+│   ├── exceptions.py
+│   └── parser.py
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
 ## Dependencies
 
 - Python 3.7+
-- tabulate: For formatted table output
+- tabulate (>=0.8.0): For formatted table output
 
 ## License
 
 This project is open source and available under the MIT License.
-=======
-"# job-ats-api-23MH1A4901" 
->>>>>>> 4e3cc5d250e055a6116900af6ba2c1abb930241d
