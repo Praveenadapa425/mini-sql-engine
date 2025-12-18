@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mini SQL Database Engine
 
 A simplified, in-memory SQL query engine implemented in Python. This project demonstrates fundamental database concepts by implementing a basic SQL parser and execution engine.
@@ -148,3 +149,6 @@ mini-sql-engine/
 ## License
 
 This project is open source and available under the MIT License.
+=======
+"# job-ats-api-23MH1A4901" 
+>>>>>>> 4e3cc5d250e055a6116900af6ba2c1abb930241d
