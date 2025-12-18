@@ -1,0 +1,3 @@
+"""
+Mini SQL Engine package.
+"""
