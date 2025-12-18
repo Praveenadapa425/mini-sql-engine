@@ -1,16 +1,17 @@
-# Mini SQL Database Engine
+# Mini SQL Database Engine in Python
 
 A simplified, in-memory SQL query engine implemented in Python. This project demonstrates fundamental database concepts by implementing a basic SQL parser and execution engine.
 
 This lightweight database engine allows you to load CSV files as tables and perform SQL-like queries on them directly in memory, without requiring a traditional database server.
 
-## Features
+## Key Features
 
-- Load CSV files as database tables
-- SELECT queries with column projection (\* or specific columns)
-- WHERE clause filtering with comparison operators (=, !=, >, <, >=, <=)
-- COUNT() aggregate function for row counting
-- Interactive command-line interface (CLI)
+- **CSV Data Loading**: Load CSV files as in-memory database tables
+- **SELECT Queries**: Support for column projection (all columns or specific ones)
+- **WHERE Filtering**: Filter rows with various comparison operators
+- **Aggregation**: COUNT() function for row counting
+- **Interactive CLI**: User-friendly command-line interface for executing queries
+- **Error Handling**: Clear error messages for invalid syntax or operations
 
 ## Supported SQL Grammar
 
@@ -71,68 +72,54 @@ WHERE age > 30
 
 ## Usage
 
-Run the CLI application:
-```
+### Running the CLI Application
+
+```bash
 python -m src.cli
 ```
 
-Or alternatively:
-```
+Or:
+```bash
 cd src
 python cli.py
 ```
 
-### Example Session
+### Interactive Commands
+
+Once the CLI is running, you can enter SQL commands:
 
 ```
 sql> LOAD sample_data/employees.csv;
 Table 'employees' loaded successfully from 'sample_data/employees.csv'
-```
+
 sql> SELECT * FROM employees;
-+----+------------------+-----+---------+--------------+--------+
-| id | name             | age | country | department   | salary |
-+====+==================+=====+=========+==============+========+
-| 1  | Praveen Adapa    | 38  | India   | Engineering  | 75000  |
-+----+------------------+-----+---------+--------------+--------+
-| 2  | Datta mani       | 25  | India   | Marketing    | 65000  |
-+----+------------------+-----+---------+--------------+--------+
-| 3  | Naruto Uzimaki   | 36  | Japan   | Engineering  | 80000  |
-+----+------------------+-----+---------+--------------+--------+
-| 4  | Swamy Reddy      | 35  | India   | Sales        | 70000  |
-+----+------------------+-----+---------+--------------+--------+
-| 5  | sasuke uchiha    | 42  | USA     | Management   | 95000  |
-+----+------------------+-----+---------+--------------+--------+
-| 6  | Rock Lee         | 31  | Canada  | Engineering  | 72000  |
-+----+------------------+-----+---------+--------------+--------+
-| 7  | Might Guy        | 29  | UK      | Marketing    | 68000  |
-+----+------------------+-----+---------+--------------+--------+
-| 8  | Baruto Uzumaki   | 38  | Japan   | Sales        | 77000  |
-+----+------------------+-----+---------+--------------+--------+
-| 9  | Kakashi Hatake   | 45  | Japan   | Engineering  | 85000  |
-+----+------------------+-----+---------+--------------+--------+
+Results:
+  id | name             | age | country | department   | salary
+  1  | Praveen Adapa    | 38  | India   | Engineering  | 75000
+  2  | Datta mani       | 25  | India   | Marketing    | 65000
+  3  | Naruto Uzimaki   | 36  | Japan   | Engineering  | 80000
+  4  | Swamy Reddy      | 35  | India   | Sales        | 70000
+  5  | sasuke uchiha    | 42  | USA     | Management   | 95000
+  6  | Rock Lee         | 31  | Canada  | Engineering  | 72000
+  7  | Might Guy        | 29  | UK      | Marketing    | 68000
+  8  | Baruto Uzumaki   | 38  | Japan   | Sales        | 77000
+  9  | Kakashi Hatake   | 45  | Japan   | Engineering  | 85000
 
 sql> SELECT name, age FROM employees WHERE age > 30;
-+------------------+-----+
-| name             | age |
-+==================+=====+
-| Praveen Adapa    | 38  |
-+------------------+-----+
-| Naruto Uzimaki   | 36  |
-+------------------+-----+
-| Swamy Reddy      | 35  |
-+------------------+-----+
-| sasuke uchiha    | 42  |
-+------------------+-----+
-| Baruto Uzumaki   | 38  |
-+------------------+-----+
-| Kakashi Hatake   | 45  |
-+------------------+-----+
+Results:
+  name             | age
+  Praveen Adapa    | 38
+  Naruto Uzimaki   | 36
+  Swamy Reddy      | 35
+  sasuke uchiha    | 42
+  Baruto Uzumaki   | 38
+  Kakashi Hatake   | 45
 
 sql> SELECT COUNT(*) FROM employees;
-9
+Count: 9
 
 sql> SELECT COUNT(*) FROM employees WHERE country = 'USA';
-1
+Count: 1
 ```
 
 ## Project Structure
